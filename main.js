@@ -5,13 +5,13 @@ var trackthisforme = require('./trackthisforme');
 
 var options {
     trackthisforme: {
-        access_token: '',
-        category_id: ''
+        access_token: 'x',
+        category_id: 0 
     },
     lastfm: {
-        api_key: '',
-        secret: '',
-        username: ''
+        api_key: 'x',
+        secret: 'x',
+        username: 'x'
     }
 }
 
@@ -21,7 +21,7 @@ var user = trackthisforme(options.trackthisforme.access_token);
 // Create lastfm instance
 var lastfm = new LastFmNode({
   api_key: options.lastfm.api_key,
-  secret: options.lastfm.secret,
+  secret: options.lastfm.secret
 });
 
 // Start streaming the lastfm last played tracks
@@ -69,13 +69,13 @@ app.get('/redirect', function (req, res) {
     function (error, response, body) {
         console.log('error', error);
         console.log('response.statusCode', response.statusCode);
-        console.log('body:', body)
+        console.log('body:', body);
         res.send('<p>Response from tackthisfor.me: ' + body);
     });
 });
 
 var server = app.listen(3000, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log('TrackLastFMForMe listening at http://%s:%s', host, port)
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('TrackLastFMForMe listening at http://%s:%s', host, port);
 });
